@@ -24,7 +24,7 @@ Enigma Glass has been built using this software stack.
 
 The Elastic Stack consists of four major components:
 
-![Elastic components](./assets/elastic-components.png)
+![Elastic components](../assets/elastic-components.png)
 
 ## Elasticsearch
 Elasticsearch is a search and analytics engine that is used to store, search, and analyze large volumes of data quickly and in near real time. It is a distributed, RESTful search and analytics engine that is built on top of Apache Lucene.
