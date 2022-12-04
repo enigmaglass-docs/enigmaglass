@@ -1,6 +1,7 @@
 name: Pheonix Build and Deploy
 on:
   pull_request:
+    types: [ ready_for_review ]
     branches: [ development ]
     paths-ignore:
       - '.github/workflows/**'
