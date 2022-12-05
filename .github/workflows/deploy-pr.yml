@@ -8,8 +8,9 @@ on:
       - 'README.md'
   workflow_dispatch:
 
+
 env:
-  PR_REPO_NAME: pheonix-deploy-${{ GITHUB_REF_NAME }}
+  PR_REPO_NAME: pheonix-deploy-${{ github.ref.name }}
 
 jobs:
   create-page-host:
