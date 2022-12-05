@@ -38,7 +38,7 @@ jobs:
       - name: Build
         run: |
           cd build
-          tail -n +4 development-blurb.md >> index.md
+          cat development-blurb.md >> index.md
           MAKE="make --jobs 4" bundle exec jekyll build
           cd ..
       

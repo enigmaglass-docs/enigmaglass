@@ -53,6 +53,7 @@ jobs:
       - name: Build Pull Request
         run: |
           cd pr-build
+          cat pheonix-blurb.md >> index.md
           MAKE="make --jobs 4" bundle exec jekyll build
           cd ..
       
