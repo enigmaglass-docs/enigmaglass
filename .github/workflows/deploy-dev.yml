@@ -56,6 +56,7 @@ jobs:
           rm -r deploy/*
           rsync -avr --prune-empty-dirs --exclude '.git' build/* deploy
           cd deploy
+          rm CNAME
           echo ${{ env.URL }} > CNAME
           git add .
           git commit -m "$COMMIT_MSG $GITHUB_SHA"
