@@ -19,7 +19,10 @@ jobs:
       url: https://${{ env.URL }}
     steps:
       - name: Setup Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.0'
+          bundler-cache: true
       
       # https://github.com/actions/checkout#push-a-commit-using-the-built-in-token
       - name: Set GitHub Actions as Commit Author
@@ -35,7 +38,6 @@ jobs:
       - name: Build
         run: |
           cd build
-          MAKE="make --jobs 4" gem install bundler
           MAKE="make --jobs 4" bundle install
           MAKE="make --jobs 4" bundle exec jekyll build
           cd ..
