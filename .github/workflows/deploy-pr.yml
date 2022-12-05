@@ -36,9 +36,6 @@ jobs:
       name: pr-staging
       url: https://enigmaglass-docs.github.io/${{ env.PR_REPO_NAME }}/
     steps:
-      - name: Setup Ruby
-        uses: actions/setup-ruby@v1
-      
       # https://github.com/actions/checkout#push-a-commit-using-the-built-in-token
       - name: Set GitHub Actions as Commit Author
         run: |
@@ -49,13 +46,18 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: 'pr-build'
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.0'
+          bundler-cache: true
+          working-directory: 'pr-build/'
       
       - name: Build Pull Request
         run: |
           cd pr-build
-          gem install bundler
-          bundle install
-          bundle exec jekyll build
+          MAKE="make --jobs 4" bundle exec jekyll build
           cd ..
       
       - name: Checkout temporary deployment target repo
