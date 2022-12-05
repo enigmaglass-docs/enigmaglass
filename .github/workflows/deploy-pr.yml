@@ -74,7 +74,7 @@ jobs:
           git push
 
   init-pheonix-page:
-    needs: pr-build-deploy
+    needs: pheonix-build-deploy
     runs-on: ubuntu-latest
     environment: 
       name: pr-staging
