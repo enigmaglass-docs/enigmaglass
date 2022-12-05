@@ -38,7 +38,6 @@ jobs:
       - name: Build
         run: |
           cd build
-          MAKE="make --jobs 4" bundle install
           MAKE="make --jobs 4" bundle exec jekyll build
           cd ..
       
