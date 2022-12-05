@@ -7,13 +7,9 @@ on:
       - '.github/workflows/**'
       - 'README.md'
   workflow_dispatch:
-    inputs:
-      - branch:
-          description: 'The name of the branch to run the workflow on'
-          required: true
 
 env:
-  PR_REPO_NAME: pheonix-deploy-${{ github.ref.name }}${{ inputs.branch }}
+  PR_REPO_NAME: pheonix-deploy-${{ github.event.ref.name }}
 
 jobs:
   delete-page-host:
