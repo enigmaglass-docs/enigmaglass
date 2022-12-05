@@ -71,7 +71,7 @@ jobs:
           git push
 
   create-page-host:
-    needs: [ create-page-host, pr-build-deploy ]
+    needs: pr-build-deploy
     runs-on: ubuntu-latest
     environment: 
       name: pr-staging
