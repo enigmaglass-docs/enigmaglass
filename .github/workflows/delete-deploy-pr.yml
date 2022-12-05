@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 env:
-  PR_REPO_NAME: pheonix-deploy-${{ github.event.ref.name }}
+  PR_REPO_NAME: pheonix-deploy-${{ github.event.pull_request.ref.name }}${{ github.event.workflow_dispatch.ref.name }}
 
 jobs:
   delete-page-host:
