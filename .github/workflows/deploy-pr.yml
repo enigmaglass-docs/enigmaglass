@@ -8,6 +8,7 @@ on:
       - 'README.md'
   workflow_dispatch:
 
+
 env:
   PR_REPO_NAME: pheonix-deploy-${{ github.event.pull_request.node_id }}
 
@@ -24,7 +25,7 @@ jobs:
           org: enigmaglass-docs
           access-token: ${{ secrets.PAT }}
     
-  pr-build-deploy:
+  pheonix-build-deploy:
     needs: create-page-host
     runs-on: ubuntu-latest
     environment: 
@@ -52,6 +53,7 @@ jobs:
       - name: Build Pull Request
         run: |
           cd pr-build
+          cat pheonix-blurb.md >> index.md
           MAKE="make --jobs 4" bundle exec jekyll build
           cd ..
       
@@ -74,7 +76,7 @@ jobs:
           git push
 
   init-pheonix-page:
-    needs: pr-build-deploy
+    needs: pheonix-build-deploy
     runs-on: ubuntu-latest
     environment: 
       name: pr-staging
