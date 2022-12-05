@@ -52,6 +52,7 @@ jobs:
         with:
           ruby-version: '2.7.0'
           bundler-cache: true
+          working-directory: 'build/'
       
       - name: Build Pull Request
         run: |
