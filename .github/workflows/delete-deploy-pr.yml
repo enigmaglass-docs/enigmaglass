@@ -1,11 +1,12 @@
 name: Delete Pheonix Deployment
 on:
   pull_request:
-    branches: [ main ]
-    types: [ closed ]
+    types: [ closed, converted_to_draft ]
+    branches: [ development ]
     paths-ignore:
       - '.github/workflows/**'
-      - '**.md'
+      - 'README.md'
+  workflow_dispatch:
 
 env:
   PR_REPO_NAME: pheonix-deploy-${{ github.event.pull_request.node_id }}
