@@ -69,3 +69,16 @@ jobs:
           git add .
           git commit -m "$COMMIT_MSG $GITHUB_SHA"
           git push
+
+  create-page-host:
+    needs: [ create-page-host, pr-build-deploy ]
+    runs-on: ubuntu-latest
+    environment: 
+      name: pr-staging
+    steps:
+      - name: Initialize github pages for temporary deployment
+        uses: enigmaglass-docs/create-pages-action@v1
+        with:
+          name: ${{ env.PR_REPO_NAME }}
+          org: enigmaglass-docs
+          access-token: ${{ secrets.PAT }}
