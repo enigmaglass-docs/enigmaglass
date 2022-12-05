@@ -31,17 +31,17 @@ jobs:
           access-token: ${{ secrets.PAT }}
     
   manual-create-page-host:
-  runs-on: ubuntu-latest
-  if: ${{ github.event == 'workflow_dispatch' }}
-  environment: 
-    name: pr-staging
-  steps:
-    - name: Create new repository for temporary deployment
-      uses: enigmaglass-docs/create-repository-action@v2
-      with:
-        name: ${{ env.WD_REPO_NAME }}
-        org: enigmaglass-docs
-        access-token: ${{ secrets.PAT }}
+    runs-on: ubuntu-latest
+    if: ${{ github.event == 'workflow_dispatch' }}
+    environment: 
+      name: pr-staging
+    steps:
+      - name: Create new repository for temporary deployment
+        uses: enigmaglass-docs/create-repository-action@v2
+        with:
+          name: ${{ env.WD_REPO_NAME }}
+          org: enigmaglass-docs
+          access-token: ${{ secrets.PAT }}
     
   pr-build-deploy:
     needs: create-page-host
