@@ -8,13 +8,10 @@ on:
       - 'README.md'
   workflow_dispatch:
     inputs:
-      PR_REPO_NAME:
-        description: 'Enter string to identify deploy (pheonix-deploy-{YOUR_INPUT})'
-        required: true
 
 env:
   PR_REPO_NAME: pheonix-deploy-${{ github.event.pull_request.node_id }}
-  WD_REPO_NAME: pheonix-deploy-${{ env.GITHUB_SHA }}
+  WD_REPO_NAME: pheonix-deploy-${{ env.GITHUB_RUN_ID }}
 
 jobs:
   pr-create-page-host:
