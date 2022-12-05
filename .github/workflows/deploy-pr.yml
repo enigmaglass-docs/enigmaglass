@@ -14,7 +14,7 @@ on:
 
 
 env:
-  PR_REPO_NAME: pheonix-deploy-${{ github.ref.name }}
+  PR_REPO_NAME: pheonix-deploy-${{ github.ref.name }}${{ inputs.branch }}
 
 jobs:
   create-page-host:
