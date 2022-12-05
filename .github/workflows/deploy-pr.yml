@@ -37,7 +37,8 @@ jobs:
       url: https://enigmaglass-docs.github.io/${{ env.PR_REPO_NAME }}/
     steps:
       - name: Setup Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
+          bundler-cache: true
       
       # https://github.com/actions/checkout#push-a-commit-using-the-built-in-token
       - name: Set GitHub Actions as Commit Author
