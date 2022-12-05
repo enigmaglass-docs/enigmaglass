@@ -18,7 +18,6 @@ jobs:
       name: development
       url: https://${{ env.URL }}
     steps:
-      # https://github.com/actions/checkout#push-a-commit-using-the-built-in-token
       - name: Set GitHub Actions as Commit Author
         run: |
           git config --global user.name github-actions
@@ -39,6 +38,7 @@ jobs:
       - name: Build
         run: |
           cd build
+          car development-blurb.md >> index.md
           MAKE="make --jobs 4" bundle exec jekyll build
           cd ..
       
