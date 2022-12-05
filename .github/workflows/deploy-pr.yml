@@ -83,7 +83,7 @@ jobs:
       name: pr-staging
     steps:
       - name: Initialize github pages for temporary deployment
-        uses: enigmaglass-docs/create-pages-action@v1
+        uses: enigmaglass-docs/create-page-action@v1
         with:
           name: ${{ env.PR_REPO_NAME }}
           org: enigmaglass-docs
