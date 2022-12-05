@@ -7,7 +7,6 @@ on:
       - '.github/workflows/**'
       - 'README.md'
   workflow_dispatch:
-    inputs:
 
 env:
   PR_REPO_NAME: pheonix-deploy-${{ github.GITHUB_REF }}
