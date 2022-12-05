@@ -76,7 +76,7 @@ jobs:
           git commit -m "$COMMIT_MSG $GITHUB_SHA"
           git push
 
-  create-page-host:
+  init-pheonix-page:
     needs: pr-build-deploy
     runs-on: ubuntu-latest
     environment: 
