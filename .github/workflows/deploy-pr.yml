@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 env:
-  PR_REPO_NAME: pheonix-deploy-${{ github.GITHUB_REF }}
+  PR_REPO_NAME: pheonix-deploy-${{ GITHUB_REF_NAME }}
 
 jobs:
   create-page-host:
