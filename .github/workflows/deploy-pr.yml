@@ -6,6 +6,12 @@ on:
     paths-ignore:
       - '.github/workflows/**'
       - 'README.md'
+    push:
+      branches: feature/*
+      paths-ignore:
+        - '.github/workflows/**'
+        - 'README.md'
+    workflow_dispatch:
 
 env:
   PR_REPO_NAME: pheonix-deploy-${{ github.event.pull_request.node_id }}
