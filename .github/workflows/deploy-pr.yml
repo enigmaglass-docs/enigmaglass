@@ -53,9 +53,9 @@ jobs:
       - name: Build Pull Request
         run: |
           cd pr-build
-          gem install bundler
-          bundle install
-          bundle exec jekyll build
+          MAKE="make --jobs 4" gem install bundler
+          MAKE="make --jobs 4" bundle install
+          MAKE="make --jobs 4" bundle exec jekyll build
           cd ..
       
       - name: Checkout temporary deployment target repo

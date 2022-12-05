@@ -35,9 +35,9 @@ jobs:
       - name: Build
         run: |
           cd build
-          gem install bundler
-          bundle install
-          bundle exec jekyll build
+          MAKE="make --jobs 4" gem install bundler
+          MAKE="make --jobs 4" bundle install
+          MAKE="make --jobs 4" bundle exec jekyll build
           cd ..
       
       # bundle exec rake search:init
